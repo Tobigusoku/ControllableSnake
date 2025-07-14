@@ -1,0 +1,19 @@
+Requirement already satisfied: protobuf==3.20.3 in c:\users\yutar\anaconda3\envs\mlagents_110\lib\site-packages (3.20.3)
+Collecting cattrs==1.6.0
+  Using cached cattrs-1.6.0-py3-none-any.whl.metadata (8.1 kB)
+Requirement already satisfied: attrs in c:\users\yutar\appdata\roaming\python\python310\site-packages (25.3.0)
+Collecting numpy==1.26.4
+  Using cached numpy-1.26.4-cp310-cp310-win_amd64.whl.metadata (61 kB)
+Using cached cattrs-1.6.0-py3-none-any.whl (22 kB)
+Using cached numpy-1.26.4-cp310-cp310-win_amd64.whl (15.8 MB)
+Installing collected packages: numpy, cattrs
+  Attempting uninstall: numpy
+    Found existing installation: numpy 1.23.5
+    Uninstalling numpy-1.23.5:
+      Successfully uninstalled numpy-1.23.5
+  Attempting uninstall: cattrs
+    Found existing installation: cattrs 1.5.0
+    Uninstalling cattrs-1.5.0:
+      Successfully uninstalled cattrs-1.5.0
+
+Successfully installed cattrs-1.6.0 numpy-1.26.4

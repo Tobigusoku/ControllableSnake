@@ -96,7 +96,7 @@ ConfigurableJoint:
   serializedVersion: 4
   m_ConnectedBody: {fileID: 6938433693150856797}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Anchor: {x: 0, y: 0, z: -0.55}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
@@ -118,18 +118,18 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LowAngularXLimit:
-    limit: 0
+    limit: -177
     bounciness: 0
     contactDistance: 0
   m_HighAngularXLimit:
-    limit: 0
+    limit: 1.7795029
     bounciness: 0
     contactDistance: 0
   m_AngularYZLimitSpring:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 0
+    limit: 66.616135
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
@@ -284,7 +284,7 @@ ConfigurableJoint:
   serializedVersion: 4
   m_ConnectedBody: {fileID: 7949184931893617993}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: -8}
+  m_Anchor: {x: 0, y: 0, z: -0.68}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
@@ -306,18 +306,18 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LowAngularXLimit:
-    limit: 0
+    limit: -104.35401
     bounciness: 0
     contactDistance: 0
   m_HighAngularXLimit:
-    limit: 0
+    limit: 105.86597
     bounciness: 0
     contactDistance: 0
   m_AngularYZLimitSpring:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 0
+    limit: 64.598465
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
@@ -556,7 +556,7 @@ ConfigurableJoint:
   serializedVersion: 4
   m_ConnectedBody: {fileID: 7900905914423047487}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Anchor: {x: 0, y: 0, z: -0.57}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
@@ -578,18 +578,18 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LowAngularXLimit:
-    limit: 0
+    limit: -177
     bounciness: 0
     contactDistance: 0
   m_HighAngularXLimit:
-    limit: 0
+    limit: 3.5473404
     bounciness: 0
     contactDistance: 0
   m_AngularYZLimitSpring:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 0
+    limit: 56.080425
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 79
+    VectorObservationSize: 76
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 12
@@ -1139,7 +1139,7 @@ MonoBehaviour:
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
-  m_InferenceDevice: 0
+  m_InferenceDevice: 2
   m_BehaviorType: 0
   m_BehaviorName: ControllableSnake
   TeamId: 0
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 3000
+  MaxStep: 6000
   bodySegment0: {fileID: 4732227132937566483}
   bodySegment1: {fileID: 2896817220647878678}
   bodySegment2: {fileID: 921964341552039770}
@@ -1295,7 +1295,7 @@ ConfigurableJoint:
   serializedVersion: 4
   m_ConnectedBody: {fileID: 4066561317868974860}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Anchor: {x: 0, y: 0, z: -0.62}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
@@ -1317,18 +1317,18 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LowAngularXLimit:
-    limit: 0
+    limit: -163.24185
     bounciness: 0
     contactDistance: 0
   m_HighAngularXLimit:
-    limit: 0
+    limit: -18.62631
     bounciness: 0
     contactDistance: 0
   m_AngularYZLimitSpring:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 0
+    limit: 74.03028
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:

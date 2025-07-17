@@ -1,0 +1,65 @@
+{
+    "ControllableSnake": {
+        "checkpoints": [
+            {
+                "steps": 1499824,
+                "file_path": "results\\snake-3\\ControllableSnake\\ControllableSnake-1499824.onnx",
+                "reward": 8.029319928752052,
+                "creation_time": 1752726070.7811275,
+                "auxillary_file_paths": [
+                    "results\\snake-3\\ControllableSnake\\ControllableSnake-1499824.pt"
+                ]
+            },
+            {
+                "steps": 1999712,
+                "file_path": "results\\snake-3\\ControllableSnake\\ControllableSnake-1999712.onnx",
+                "reward": 8.234157532453537,
+                "creation_time": 1752727201.5289428,
+                "auxillary_file_paths": [
+                    "results\\snake-3\\ControllableSnake\\ControllableSnake-1999712.pt"
+                ]
+            },
+            {
+                "steps": 2499936,
+                "file_path": "results\\snake-3\\ControllableSnake\\ControllableSnake-2499936.onnx",
+                "reward": 8.5872902572155,
+                "creation_time": 1752728389.3480182,
+                "auxillary_file_paths": [
+                    "results\\snake-3\\ControllableSnake\\ControllableSnake-2499936.pt"
+                ]
+            },
+            {
+                "steps": 2999824,
+                "file_path": "results\\snake-3\\ControllableSnake\\ControllableSnake-2999824.onnx",
+                "reward": 8.642425724438258,
+                "creation_time": 1752729522.523267,
+                "auxillary_file_paths": [
+                    "results\\snake-3\\ControllableSnake\\ControllableSnake-2999824.pt"
+                ]
+            },
+            {
+                "steps": 3048000,
+                "file_path": "results\\snake-3\\ControllableSnake\\ControllableSnake-3048000.onnx",
+                "reward": 8.228597581386566,
+                "creation_time": 1752729631.737718,
+                "auxillary_file_paths": [
+                    "results\\snake-3\\ControllableSnake\\ControllableSnake-3048000.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 3048000,
+            "file_path": "results\\snake-3\\ControllableSnake.onnx",
+            "reward": 8.228597581386566,
+            "creation_time": 1752729631.737718,
+            "auxillary_file_paths": [
+                "results\\snake-3\\ControllableSnake\\ControllableSnake-3048000.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.7.1+cu128"
+    }
+}

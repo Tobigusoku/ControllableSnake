@@ -34,7 +34,7 @@ public class SnakeAgent : Agent
         // カメラの向きに合わせて親オブジェクトを回転
         transform.rotation = Quaternion.Euler(Camera.main.transform.eulerAngles.x, 0, Camera.main.transform.eulerAngles.z);
 
-        UpdateOrientationObjects();
+        // UpdateOrientationObjects();
 
         // 各ボディパーツのセットアップ
         m_JdController.SetupBodyPart(bodySegment0);
@@ -47,7 +47,7 @@ public class SnakeAgent : Agent
         m_moveInputDict.Add(Vector3.left, 0.25f);
         m_moveInputDict.Add(Vector3.back, 0.25f);
         m_moveInputDict.Add(Vector3.right, 0.25f);
-        // m_moveInputDict.Add(Vector3.zero, 0.2f);
+        // m_moveInputDict.Add(Vector3.zero, 0.2f); 断念
     }
 
     public override void OnEpisodeBegin()
@@ -63,7 +63,7 @@ public class SnakeAgent : Agent
         // 初期回転をランダムに設定（汎化のため）
         bodySegment0.rotation = Quaternion.Euler(0, Random.Range(0.0f, 360.0f), 0);
 
-        UpdateOrientationObjects();
+        // UpdateOrientationObjects();
     }
     public void CollectObservationBodyPart(BodyPart bp, VectorSensor sensor)
     {
@@ -125,7 +125,7 @@ public class SnakeAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        Debug.Log($"[ActionReceived] {string.Join(", ", actionBuffers.ContinuousActions.ToArray())}");
+        if (m_moveInput == Vector3.zero) return;
         var bpDict = m_JdController.bodyPartsDict;
 
         var i = -1;
@@ -151,39 +151,46 @@ public class SnakeAgent : Agent
 
     void FixedUpdate()
     {
-        UpdateOrientationObjects();
-
-        /*var velReward =
-            GetMatchingVelocityReward(m_OrientationCube.transform.forward * m_MaxWalkingSpeed,
+        // snake-2
+        var velReward =
+            GetMatchingVelocityReward(m_moveInput * m_MaxWalkingSpeed,
                 m_JdController.bodyPartsDict[bodySegment0].rb.linearVelocity);
 
         //Angle of the rotation delta between cube and body.
         //This will range from (0, 180)
-        var rotAngle = Quaternion.Angle(m_OrientationCube.transform.rotation,
-            m_JdController.bodyPartsDict[bodySegment0].rb.rotation);
-
+        var rotAngle = Vector3.Angle(m_moveInput.normalized,
+            m_JdController.bodyPartsDict[bodySegment0].rb.linearVelocity.normalized);
         //The reward for facing the target
         var facingRew = 0f;
         //If we are within 60 degrees of facing the target
-        if (rotAngle < 60)
+        if (rotAngle < 30)
         {
             //Set normalized facingReward
             //Facing the target perfectly yields a reward of 1
             facingRew = 1 - (rotAngle / 180);
         }
-
         //Add the product of these two rewards
-        AddReward(velReward * facingRew);*/
+        AddReward(velReward * facingRew * 0.1f);
 
-        // 蛇の速度と入力方向の一致度（dot）を報酬に反映
-        Vector3 agentVel = bodySegment0.GetComponent<Rigidbody>().linearVelocity;
-        float dot = Vector3.Dot(agentVel.normalized, m_moveInput.normalized);
-        AddReward(dot / 1000f);
-        // デバッグ用にdotと速度を表示
-        if (dot > 0)
-        {
-            Debug.Log($"dot: {dot}, vel: {agentVel}, move: {m_moveInput}");
-        }
+        /*
+        Vector3 vel = m_JdController.bodyPartsDict[bodySegment0].rb.linearVelocity;
+
+        Vector3 velocityGoal = m_moveInput.normalized * m_MaxWalkingSpeed;
+        float speedReward = 1f - Vector3.Distance(vel, velocityGoal) / m_MaxWalkingSpeed; // 差分ベース
+        float dirReward = Mathf.Max(0f, Vector3.Dot(vel.normalized, m_moveInput.normalized)); // dotベース
+
+        float finalReward = Mathf.Clamp01(speedReward) * dirReward;
+        AddReward(finalReward * 0.01f);
+        */
+
+        /*
+        // snake-3
+        Vector3 vel = m_JdController.bodyPartsDict[bodySegment0].rb.linearVelocity;
+        float dot = Mathf.Clamp01(Vector3.Dot(vel.normalized, m_moveInput.normalized));
+        float speedDiff = Mathf.Abs(vel.magnitude - m_moveInput.magnitude * m_MaxWalkingSpeed);
+        float speedRew = Mathf.Max(0f, (m_MaxWalkingSpeed - speedDiff) / m_MaxWalkingSpeed);
+        AddReward(dot * speedRew * 0.01f);
+        */
     }
     public float GetMatchingVelocityReward(Vector3 velocityGoal, Vector3 actualVelocity)
     {
@@ -199,12 +206,12 @@ public class SnakeAgent : Agent
         // 学習中なら一定フレームごとにランダムな方向を選択
         if (Academy.Instance.IsCommunicatorOn)
         {
-            if (currentFrames % 300 == 0)
+            if (currentFrames % 500 == 0)
             {
                 m_moveInput = RandomChoiceFromActions(m_moveInputDict);
             }
             currentFrames++;
-            Debug.Log($"IsCommunicatorOn Current Frames: {currentFrames}, MoveaInput: {m_moveInput}");
+            Debug.Log(m_moveInput);
         }
         else
         {
@@ -227,9 +234,8 @@ public class SnakeAgent : Agent
             }
             else
             {
-                m_moveInput = Vector3.forward; // デフォルトの移動方向  
+                m_moveInput = Vector3.zero; // デフォルトの移動方向  
             }
-            Debug.Log($"Manual MoveInput: {m_moveInput}");
         }
     }
     void UpdateOrientationObjects()
@@ -264,7 +270,7 @@ public class SnakeAgent : Agent
 
         for (int i = 0; i < continuousActionsOut.Length; i++)
         {
-            continuousActionsOut[i] = Random.Range(-10f, 10f);
+            continuousActionsOut[i] = 0;
         }
     }
 }

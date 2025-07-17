@@ -448,7 +448,11 @@ PrefabInstance:
     - target: {fileID: 4844586245247217965, guid: a101dd6161772ac4fabefcd83bfca26f, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 28c00bc00fefd6945862d041a5b950af, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 32615bbc789810842a7b512044308a1e, type: 3}
+    - target: {fileID: 4844586245247217965, guid: a101dd6161772ac4fabefcd83bfca26f, type: 3}
+      propertyPath: m_BehaviorType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7516351800607109742, guid: a101dd6161772ac4fabefcd83bfca26f, type: 3}
       propertyPath: m_Name
       value: PlatformSnake
